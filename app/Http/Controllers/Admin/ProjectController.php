@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Project;
+use App\Models\Type;
+
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,7 +30,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $types = Type::all();
+        return view("admin.projects.create", compact("types"));
     }
 
     /**

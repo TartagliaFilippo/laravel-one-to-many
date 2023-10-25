@@ -15,6 +15,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Titolo</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Url</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
@@ -26,6 +27,7 @@
                     <tr>
                         <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->title }}</td>
+                        <td>{!! $project->getTypeBadge() !!}</td>
                         <td>{{ $project->url }}</td>
                         <td>{{ $project->created_at }}</td>
                         <td>{{ $project->updated_at }}</td>

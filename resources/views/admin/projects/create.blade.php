@@ -25,6 +25,17 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
 
+            <label for="type_id" class="form-label">Tipo</label>
+            <select class="form-select" name="type_id" id="type_id">
+                <option value="">Nessun Tipo</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->label }}</option>
+                @endforeach
+            </select>
+            @error('title')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+
             <label for="url" class="form-label">Url Progetto</label>
             <input type="text" class="form-control @error('url') is-invalid @enderror" id="url" name="url"
                 value="{{ old('url') }}" />
