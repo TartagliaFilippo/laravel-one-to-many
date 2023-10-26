@@ -43,7 +43,6 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $this->validation($request->all());
-        ;
         $project = new Project;
         $project->fill($data);
         $project->slug = Str::slug($project->title);
@@ -105,12 +104,15 @@ class ProjectController extends Controller
             $data,
             [
                 'title' => 'required|string',
+                'type_id' => 'nullable|integer',
                 'url' => "required|url",
                 "content" => "nullable|string",
             ],
             [
                 'title.required' => 'Il titolo è obbligatorio',
                 'title.string' => 'Il titolo deve essere una stringa',
+
+                'type_id.integer' => 'La categoria inserita non è valida',
 
                 'url.required' => 'I\'url è obbligatorio',
                 'url.integer' => 'I\'url deve essere un link',
